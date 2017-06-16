@@ -205,7 +205,7 @@ task variant_effect_predictor {
     }
 
     runtime {
-        docker: "vep"
+        docker: "opengenomics/variant-effect-predictor"
     }
 }
 
