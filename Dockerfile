@@ -12,8 +12,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Adam Struck <strucka@ohsu.edu>
 
-USER root
-ENV VEP_PATH /root/vep
+ENV VEP_PATH /vep
 ENV PATH $VEP_PATH/htslib:$PATH
 ENV PERL5LIB $VEP_PATH:/opt/lib/perl5:$PERL5LIB
 
@@ -52,7 +51,7 @@ RUN cpanm --mirror http://cpan.metacpan.org -l /opt/ File::Copy::Recursive Modul
 
 # install VEP and plugins
 RUN cd $VEP_PATH && \
-    perl INSTALL.pl --AUTO ap --SPECIES homo_sapiens --ASSEMBLY GRCh37,GrCh38 --PLUGINS all
+    perl INSTALL.pl --AUTO ap --SPECIES homo_sapiens --ASSEMBLY GRCh37,GrCh38 --PLUGINS all -c /vep-cache
 
 WORKDIR /tmp/
 
