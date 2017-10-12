@@ -12,7 +12,8 @@ FROM ubuntu:14.04
 
 MAINTAINER Adam Struck <strucka@ohsu.edu>
 
-ENV VEP_PATH /vep
+ENV HOME /home
+ENV VEP_PATH /home/vep
 ENV PATH $VEP_PATH/htslib:$PATH
 ENV PERL5LIB $VEP_PATH:/opt/lib/perl5:$PERL5LIB
 
